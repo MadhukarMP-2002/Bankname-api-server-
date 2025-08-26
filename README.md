@@ -62,5 +62,4 @@ I included a set of automated tests in `test.py` to make sure the API endpoints 
 python test.py
 
 ```
-## Render link - https://bankname-api-server.onrender.com/
-```
+## Render link - https://bankname-api-server.onrender.com/ 
