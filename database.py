@@ -1,4 +1,5 @@
 import csv
+import os
 from models import db, Bank, Branch
 
 def init_db(app_instance):
@@ -14,7 +15,8 @@ def populate_db():
     bank_map = {}
     bank_id_counter = 1
 
-    with open('bank_branches.csv', mode='r', encoding='utf-8') as file:
+    csv_path = os.path.join(os.path.dirname(__file__), "bank_branches.csv")
+    with open(csv_path, mode='r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
             bank_name = row['bank_name']
@@ -38,8 +40,3 @@ def populate_db():
 
     db.session.commit()
     print("Database populated successfully.")
-
-if __name__ == '__main__':
-    from app import app
-    with app.app_context():
-        init_db(app)
