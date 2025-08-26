@@ -60,3 +60,7 @@ The API has two main functions:
 I included a set of automated tests in `test.py` to make sure the API endpoints are functioning correctly. To run them, just use this command:
 ```bash
 python test.py
+
+```
+## Render link - https://bankname-api-server.onrender.com/
+```
