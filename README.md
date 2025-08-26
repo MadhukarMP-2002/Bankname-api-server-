@@ -29,11 +29,6 @@ The API has two main functions:
 
 ## Want to Run This Yourself?
 
-### First, a couple of things you'll need:
-* Python 3.10 or newer
-* The `pip` package installer
-
-### Ready? Let's go!
 1.  **Clone the project** from GitHub:
     ```bash
     git clone [https://github.com/MadhukarMP-2002/Bankname-api-server-.git](https://github.com/MadhukarMP-2002/Bankname-api-server-.git)
