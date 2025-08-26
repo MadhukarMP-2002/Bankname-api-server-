@@ -11,6 +11,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
+# ✅ Ensure tables are created, works under Flask & Gunicorn
+with app.app_context():
+    init_db(app)
+
 @app.route('/')
 def home():
     return jsonify({"message": "Welcome to the Bank API! 🏦"})
@@ -39,7 +43,4 @@ def get_branch_details(ifsc):
     return jsonify({"error": "Branch not found"}), 404
 
 if __name__ == '__main__':
-    with app.app_context():
-        # This line is crucial for creating and populating the tables
-        init_db(app)
     app.run(debug=True)
