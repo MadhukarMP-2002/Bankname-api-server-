@@ -39,5 +39,3 @@ def get_branch_details(ifsc):
             "state": branch.state
         })
     return jsonify({"error": "Branch not found"}), 404
-
-# Remove app.run() for production (Render uses Gunicorn)
