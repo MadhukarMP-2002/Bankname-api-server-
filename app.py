@@ -1,9 +1,12 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from models import db, Bank, Branch
 from database import init_db
 
+load_dotenv()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bank_db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -36,4 +39,7 @@ def get_branch_details(ifsc):
     return jsonify({"error": "Branch not found"}), 404
 
 if __name__ == '__main__':
+    with app.app_context():
+        # This line is crucial for creating and populating the tables
+        init_db(app)
     app.run(debug=True)
